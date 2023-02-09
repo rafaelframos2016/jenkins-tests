@@ -1,14 +1,12 @@
 /* Requires the Docker Pipeline plugin */
 pipeline {
-    agent { 
-        docker { 
-            image 'maven:3.8.7-eclipse-temurin-11'
-             } 
-          }
+    agent {
+        docker { image 'node:16.13.1-alpine' }
+    }
     stages {
-        stage('build') {
+        stage('Test') {
             steps {
-                sh 'mvn --version'
+                sh 'node --version'
             }
         }
     }
